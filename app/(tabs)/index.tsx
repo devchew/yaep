@@ -36,27 +36,41 @@ const styles = StyleSheet.create({
 
 
 export default function Index() {
-    const {weather} = useWeather();
-    console.log(weather);
+    const {weather, errorMsg} = useWeather();
+    const [today] = weather || [];
+
+    if(errorMsg) {
+        return <View style={styles.weatherContainer} >
+            <Text style={styles.tempText}>{errorMsg}</Text>
+        </View>;
+    }
+
+    if (!today) {
+        //loading
+        return <View style={styles.weatherContainer} >
+            <Text style={styles.tempText}>Loading...</Text>
+        </View>;
+    }
+
     return (
         <View
             style={[
                 styles.weatherContainer,
-                { backgroundColor: weather?.weatherColor }
+                { backgroundColor: today.weatherColor }
             ]}
         >
             <View style={styles.headerContainer}>
                 <MaterialCommunityIcons
                     size={72}
-                    name={weather?.weatherIcon}
+                    name={today.weatherIcon}
                     color={'#fff'}
                 />
-                <Text style={styles.tempText}>{weather?.temperature2mMax}˚</Text>
+                <Text style={styles.tempText}>{today.temperature}˚</Text>
             </View>
             <View style={styles.bodyContainer}>
-                <Text style={styles.title}>{weather?.weatherName}</Text>
+                <Text style={styles.title}>{today.weatherName}</Text>
                 <Text style={styles.subtitle}>
-                    {weather?.weatherQuote}
+                    {today.weatherQuote}
                 </Text>
             </View>
         </View>

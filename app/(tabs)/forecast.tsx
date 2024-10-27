@@ -28,8 +28,10 @@ const styles = StyleSheet.create({
     }
 });
 
-// @ts-ignore
-const dateToRelative = (date: Date) => intlFormatDistance(date, new Date(), { unit: 'day', locale: pl })
+
+// const dateToRelative = (date: Date) => intlFormatDistance(new Date(date), new Date(), { unit: 'day' })
+// for some reason the above code does not work on android
+const dateToRelative = (date: Date) => `${new Date(date).getDate()} / ${new Date(date).getMonth()+1}`
 
 export default function Forecast() {
     const { weather, errorMsg } = useWeather(10);
@@ -41,12 +43,11 @@ export default function Forecast() {
     if (!weather) {
         return <View style={styles.container}><Text>Loading...</Text></View>;
     }
-    console.log(weather)
     return (
         <View style={styles.container}>
             <FlatList
                 data={weather}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={(item) => item.time.toString()}
                 renderItem={({ item }) => (
                     <View style={[styles.row, {backgroundColor: item.weatherColor }]}>
                         <Text style={styles.dayText}>{dateToRelative(item.time)}</Text>

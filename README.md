@@ -13,4 +13,3 @@ Dostepny jest równiez podlgąd pogody dla 10 dni.
 
 https://github.com/devchew/yaep/releases
 w releases dostępne są pliki .apk
-s

@@ -5,11 +5,9 @@ Aplikacja do pogody
 
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+![screen](Screen_Recording_20241214_144115_yeap.mp4)
 
-## expo app
+## Androi app
 
-zeskanuj qr
-![expo qr](image.png)
-
-lub odpal z linku
-`https://expo.dev/accounts/maciekvizja/projects/yeap/builds/aaaf74f5-98ac-4d65-a1d8-0821f21e31a2`
+https://github.com/devchew/yaep/releases
+w releases dostępne są pliki .apk

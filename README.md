@@ -5,7 +5,7 @@ Aplikacja do pogody
 
 ![img.png](img.png)
 ![img_1.png](img_1.png)
-![screen](Screen_Recording_20241214_144115_yeap.mp4)
+![screen](Screen.gif)
 
 ## Androi app
 
